@@ -2,8 +2,8 @@
 #include <FirebaseESP32.h>
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
-#define URL "https://rekamdata-8c407-default-rtdb.firebaseio.com/"
-#define SECRET "pZJJiMJuFu8sVlwD1cRm04btQV1b06fHoLla2wri"
+#define URL "https://rekamdata-8c407-default-rtdb.firebaseio.com/" //silahkan diganti
+#define SECRET "pZJJiMJuFu8sVlwD1cRm04btQV1b06fHoLla2wri"          //silahkan diganti
 FirebaseData fbdo;
 int a = 0;
 String apa1;
