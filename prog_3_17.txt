@@ -1,0 +1,34 @@
+{ 
+  "version": 1,
+  "author": "dian artanto",
+  "editor": "wokwi",
+  "parts": [{
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 6.71,
+      "left": -6.71,
+      "attrs": {
+        "builder": "esp32-core-2.0.5"
+      }
+    }, {
+      "type": "wokwi-serial-port",
+      "id": "serial",
+      "attrs": {
+        "baud": "9600"
+      }
+    }
+  ],
+  "connections": [ [
+      "esp:TX0",
+      "serial:RX",
+      "",
+      []
+    ], [
+      "esp:RX0",
+      "serial:TX",
+      "",
+      []
+    ]
+  ],
+  "dependencies": {}
+} 
