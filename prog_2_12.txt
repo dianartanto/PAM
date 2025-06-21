@@ -1,0 +1,25 @@
+1. channelID = xxxxxxx;
+2. alertApiKey = 'xxxxxxxxxxxxxxxxxxx';
+3. alertUrl="https://api.thingspeak.com/alerts/send";
+4. opt = weboptions("HeaderFields",["ThingSpeak-Alerts",alertApiKey]);
+5. alertSubject = sprintf("Info Suhu");
+6. baca_data = thingSpeakRead(channelID,'NumDays',1,'Fields',1);
+7. if isempty(baca_data)
+8.     alertBody = ' Tidak ada data ';      
+9. else
+10.     batas_min = 35;
+11.     batas_max = 37;
+12.     lastValue = baca_data(end); 
+13.     if (lastValue<batas_min)
+14.         alertBody = 'Suhu kurang dari 35°C';
+15.     elseif (lastValue>batas_max)
+16.         alertBody = 'Suhu lebih dari 37°C ';
+17.     else
+18.         alertBody = 'Suhu normal 35 - 37°C ';  
+19.     end
+20. end
+21. try
+22.     webwrite(alertUrl,"body",alertBody,"subject",alertSubject,opt);
+23. catch someException
+24.     fprintf("Failed to send alert: %s\n", someException.message);
+25. end
